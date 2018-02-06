@@ -335,7 +335,7 @@
 <li><code>X-API-Key</code></li>
 </ul>
 
-<p>Your API key and team ID can be found in your <a href="https://statushero.com/teams/current/edit">Team Settings</a> in Status Hero, under the API tab. You&#39;ll need to be an account administrator or team manager to view these credentials.</p>
+<p>Your team ID and team API key can be found in your <a href="https://statushero.com/teams/current/edit">Team Settings</a> in Status Hero, under the API tab. You&#39;ll need to be an account administrator or team manager to view these credentials.</p>
 
 <p>All requests are scoped by Status Hero team. (Each Status Hero account can have multiple teams.)</p>
 
@@ -345,7 +345,7 @@
 <pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://statushero.com/api/v1/reports"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   -H <span class="s2">"X-TEAM-ID: your-team-id"</span> <span class="se">\</span>
-  -H <span class="s2">"X-API-KEY: your-api-key"</span>
+  -H <span class="s2">"X-API-KEY: your-team-api-key"</span>
 </code></pre><h1 id='pagination'>Pagination</h1>
 <p>Each API call that produces a collection of objects will only return 30 at a time. To page through the list, simply add the <code>page</code> parameter to the call.</p>
 
@@ -355,13 +355,13 @@
 <pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://statushero.com/api/v1/reports?page=3"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   -H <span class="s2">"X-TEAM-ID: your-team-id"</span> <span class="se">\</span>
-  -H <span class="s2">"X-API-KEY: your-api-key"</span>
+  -H <span class="s2">"X-API-KEY: your-team-api-key"</span>
 </code></pre><h1 id='members'>Members</h1>
 <p>A <code>Member</code> is a user who belongs to your team.</p>
 <h2 id='get-all-members'>Get All Members</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://statushero.com/api/v1/members"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   -H <span class="s2">"X-TEAM-ID: your-team-id"</span> <span class="se">\</span>
-  -H <span class="s2">"X-API-KEY: your-api-key"</span>
+  -H <span class="s2">"X-API-KEY: your-team-api-key"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -435,7 +435,7 @@
 <h2 id='get-all-reports'>Get All Reports</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://statushero.com/api/v1/reports"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   -H <span class="s2">"X-TEAM-ID: your-team-id"</span> <span class="se">\</span>
-  -H <span class="s2">"X-API-KEY: your-api-key"</span>
+  -H <span class="s2">"X-API-KEY: your-team-api-key"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -520,7 +520,7 @@
 <h2 id='get-a-specific-report'>Get a Specific Report</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://statushero.com/api/v1/reports/2018-02-05"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   -H <span class="s2">"X-TEAM-ID: your-team-id"</span> <span class="se">\</span>
-  -H <span class="s2">"X-API-KEY: your-api-key"</span>
+  -H <span class="s2">"X-API-KEY: your-team-api-key"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -583,7 +583,7 @@
 <h2 id='get-all-statuses'>Get All Statuses</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://statushero.com/api/v1/statuses"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   -H <span class="s2">"X-TEAM-ID: your-team-id"</span> <span class="se">\</span>
-  -H <span class="s2">"X-API-KEY: your-api-key"</span>
+  -H <span class="s2">"X-API-KEY: your-team-api-key"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -673,7 +673,7 @@
 <h2 id='get-a-specific-status'>Get a Specific Status</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://statushero.com/api/v1/statuses/2ab4751c-c7ef-4b45-a79c-ac9822d708f6"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   -H <span class="s2">"X-TEAM-ID: your-team-id"</span> <span class="se">\</span>
-  -H <span class="s2">"X-API-KEY: your-api-key"</span>
+  -H <span class="s2">"X-API-KEY: your-team-api-key"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -738,7 +738,7 @@
 <h2 id='get-a-specific-status-activity'>Get a Specific Status Activity</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://statushero.com/api/v1/statuses_activities/f5238ebd-6f24-41c8-826d-815bb514ac2d"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   -H <span class="s2">"X-TEAM-ID: your-team-id"</span> <span class="se">\</span>
-  -H <span class="s2">"X-API-KEY: your-api-key"</span>
+  -H <span class="s2">"X-API-KEY: your-team-api-key"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -777,7 +777,7 @@
   -X POST <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   -H <span class="s2">"X-TEAM-ID: your-team-id"</span> <span class="se">\</span>
-  -H <span class="s2">"X-API-KEY: your-api-key"</span> <span class="se">\</span>
+  -H <span class="s2">"X-API-KEY: your-team-api-key"</span> <span class="se">\</span>
   -d <span class="s1">'{"email":"adam@example.com", "source":"Kanban Board", "description": "Moved user story Reporting from Doing to QA"}'</span> <span class="se">\</span>
 </code></pre>
 <p>Use this endpoint to push activities from your external tools to Status Hero. You&#39;ll need to include the fields below that Status Hero can match up the activity with the appropriate team member and check-in. All fields are required unless noted. Returns a <code>201 Created</code> when successful.</p>
@@ -822,7 +822,7 @@
 <h2 id='get-a-specific-comment'>Get a Specific Comment</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://statushero.com/api/v1/comments/{id}"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   -H <span class="s2">"X-TEAM-ID: your-team-id"</span> <span class="se">\</span>
-  -H <span class="s2">"X-API-KEY: your-api-key"</span>
+  -H <span class="s2">"X-API-KEY: your-team-api-key"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -873,7 +873,7 @@
 <h2 id='get-a-specific-reaction'>Get a Specific Reaction</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://statushero.com/api/v1/reactions/{id}"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   -H <span class="s2">"X-TEAM-ID: your-team-id"</span> <span class="se">\</span>
-  -H <span class="s2">"X-API-KEY: your-api-key"</span>
+  -H <span class="s2">"X-API-KEY: your-team-api-key"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -924,7 +924,7 @@
   -X POST <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   -H <span class="s2">"X-TEAM-ID: your-team-id"</span> <span class="se">\</span>
-  -H <span class="s2">"X-API-KEY: your-api-key"</span>
+  -H <span class="s2">"X-API-KEY: your-team-api-key"</span>
   -d <span class="s1">'{"date": "2018-04-28"}'</span>
 </code></pre>
 <p>This idempotent endpoint creates a vacation or leave day for an individual team <code>Member</code>. You can get the IDs of team members with a call to the members endpoint. Returns a <code>201 Created</code> when successful, or <code>202 Accepted</code> if the date is already set as an absent date.</p>
@@ -958,7 +958,7 @@
   -X DELETE <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   -H <span class="s2">"X-TEAM-ID: your-team-id"</span> <span class="se">\</span>
-  -H <span class="s2">"X-API-KEY: your-api-key"</span>
+  -H <span class="s2">"X-API-KEY: your-team-api-key"</span>
 </code></pre>
 <p>This endpoint removes a vacation or leave day for an individual team <code>Member</code>. You can get the IDs of team members with a call to the members endpoint. Returns a <code>204 No Content</code> if successful.</p>
 <h3 id='http-request-11'>HTTP Request</h3>
@@ -985,7 +985,7 @@
   -X POST <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   -H <span class="s2">"X-TEAM-ID: your-team-id"</span> <span class="se">\</span>
-  -H <span class="s2">"X-API-KEY: your-api-key"</span>
+  -H <span class="s2">"X-API-KEY: your-team-api-key"</span>
   -d <span class="s1">'{"date": "2018-04-28"}'</span>
 </code></pre>
 <p>This idempotent endpoint creates a team-wide holiday. Returns a <code>201 Created</code> when successful, or <code>202 Accepted</code> if the date is already set as a holiday.</p>
@@ -1007,7 +1007,7 @@
   -X DELETE <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   -H <span class="s2">"X-TEAM-ID: your-team-id"</span> <span class="se">\</span>
-  -H <span class="s2">"X-API-KEY: your-api-key"</span>
+  -H <span class="s2">"X-API-KEY: your-team-api-key"</span>
 </code></pre>
 <p>This endpoint removes a team-wide holiday for the specified date. Returns a <code>204 No Content</code> if successful.</p>
 <h3 id='http-request-13'>HTTP Request</h3>
