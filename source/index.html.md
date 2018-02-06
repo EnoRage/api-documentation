@@ -123,6 +123,15 @@ This endpoint retrieves a collection of `Member` objects for each user on the te
 ### HTTP Request
 
 `GET https://statushero.com/api/v1/members`
+
+Or optionally:
+
+`GET https://statushero.com/api/v1/members?q={search_term}`
+
+| Query Parameter | Description                                                              |
+| --------- | ------------------------------------------------------------------------ |
+| `q`      | Narrow the returned list with a search by a whole or partial match of last name, first name, or email address |
+
 # Reports
 
 A `Report` is collection of status updates from each of your team members for a particular date.
