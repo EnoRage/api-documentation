@@ -17,4 +17,9 @@ vagrant up
 
 Docs are up at http://localhost:4567. 
 
+Test via htmlproofer with `rake test`
+
+## Publish
+
+`rake publish`
 
