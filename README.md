@@ -21,5 +21,7 @@ Test via htmlproofer with `rake test`
 
 ## Publish
 
+The documentation is hosted on GitHub. 
+
 `rake publish`
 

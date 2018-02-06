@@ -1,13 +1,10 @@
 require 'bundler'
 
-desc "Generate the static files, publish to Status Hero repository"
+desc "Generate the static files, publish to GitHub"
 task "publish" do
   Bundler.require
   puts ""
-  system "rm -rf ../statushero/public/api; mkdir ../statushero/public/api"
-  puts "Publishing to ../statushero/public/api"
-  system "middleman build --clean --build-dir '../statushero/public/api'"
-  puts "Finished!"
+  system "./deploy.sh"
   puts ""
 end
 
