@@ -414,6 +414,22 @@
 <p>This endpoint retrieves a collection of <code>Member</code> objects for each user on the team, ordered by last name. ()</p>
 <h3 id='http-request'>HTTP Request</h3>
 <p><code>GET https://statushero.com/api/v1/members</code></p>
+
+<p>Or optionally:</p>
+
+<p><code>GET https://statushero.com/api/v1/members?q={search_term}</code></p>
+
+<table><thead>
+<tr>
+<th>Query Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>q</code></td>
+<td>Narrow the returned list with a search by a whole or partial match of last name, first name, or email address</td>
+</tr>
+</tbody></table>
 <h1 id='reports'>Reports</h1>
 <p>A <code>Report</code> is collection of status updates from each of your team members for a particular date.</p>
 <h2 id='get-all-reports'>Get All Reports</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://statushero.com/api/v1/reports"</span> <span class="se">\</span>
