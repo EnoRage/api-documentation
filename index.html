@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>API Reference</title>
+    <title>Status Hero API Reference</title>
 
     <style>
       .highlight table td { padding: 5px; }
@@ -201,7 +201,7 @@
       <script src="javascripts/all.js"></script>
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;,&quot;python&quot;,&quot;javascript&quot;]">
+  <body class="index" data-languages="[&quot;shell&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -210,11 +210,10 @@
     </a>
     <div class="toc-wrapper">
       <img src="images/logo.png" class="logo" alt="Logo" />
+      <h1 class="toc-title">Status Hero</h1>
+      <h2 class='toc-subtitle'>API version 1.0</h2>
         <div class="lang-selector">
               <a href="#" data-language-name="shell">shell</a>
-              <a href="#" data-language-name="ruby">ruby</a>
-              <a href="#" data-language-name="python">python</a>
-              <a href="#" data-language-name="javascript">javascript</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -222,165 +221,335 @@
         <ul class="search-results"></ul>
       <div id="toc" class="toc-list-h1">
           <li>
-            <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
+            <a href="#introduction" class="toc-h1 toc-link" data-title="introduction">Introduction</a>
           </li>
           <li>
-            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
+            <a href="#format-and-versioning" class="toc-h1 toc-link" data-title="format-and-versioning">Format and Versioning</a>
           </li>
           <li>
-            <a href="#kittens" class="toc-h1 toc-link" data-title="Kittens">Kittens</a>
+            <a href="#authentication" class="toc-h1 toc-link" data-title="authentication">Authentication</a>
+          </li>
+          <li>
+            <a href="#pagination" class="toc-h1 toc-link" data-title="pagination">Pagination</a>
+          </li>
+          <li>
+            <a href="#members" class="toc-h1 toc-link" data-title="members">Members</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#get-all-kittens" class="toc-h2 toc-link" data-title="Get All Kittens">Get All Kittens</a>
-                  </li>
-                  <li>
-                    <a href="#get-a-specific-kitten" class="toc-h2 toc-link" data-title="Get a Specific Kitten">Get a Specific Kitten</a>
-                  </li>
-                  <li>
-                    <a href="#delete-a-specific-kitten" class="toc-h2 toc-link" data-title="Delete a Specific Kitten">Delete a Specific Kitten</a>
+                    <a href="#get-all-members" class="toc-h2 toc-link" data-title="get-all-members">Get All Members</a>
                   </li>
               </ul>
           </li>
           <li>
-            <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
+            <a href="#reports" class="toc-h1 toc-link" data-title="reports">Reports</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-all-reports" class="toc-h2 toc-link" data-title="get-all-reports">Get All Reports</a>
+                  </li>
+                  <li>
+                    <a href="#get-a-specific-report" class="toc-h2 toc-link" data-title="get-a-specific-report">Get a Specific Report</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#statuses" class="toc-h1 toc-link" data-title="statuses">Statuses</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-all-statuses" class="toc-h2 toc-link" data-title="get-all-statuses">Get All Statuses</a>
+                  </li>
+                  <li>
+                    <a href="#get-a-specific-status" class="toc-h2 toc-link" data-title="get-a-specific-status">Get a Specific Status</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#status-activities" class="toc-h1 toc-link" data-title="status-activities">Status Activities</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-a-specific-status-activity" class="toc-h2 toc-link" data-title="get-a-specific-status-activity">Get a Specific Status Activity</a>
+                  </li>
+                  <li>
+                    <a href="#add-a-status-activity" class="toc-h2 toc-link" data-title="add-a-status-activity">Add a Status Activity</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#comments" class="toc-h1 toc-link" data-title="comments">Comments</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-a-specific-comment" class="toc-h2 toc-link" data-title="get-a-specific-comment">Get a Specific Comment</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#reactions" class="toc-h1 toc-link" data-title="reactions">Reactions</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-a-specific-reaction" class="toc-h2 toc-link" data-title="get-a-specific-reaction">Get a Specific Reaction</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#member-absences" class="toc-h1 toc-link" data-title="member-absences">Member Absences</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#add-member-absence" class="toc-h2 toc-link" data-title="add-member-absence">Add Member Absence</a>
+                  </li>
+                  <li>
+                    <a href="#remove-member-absence" class="toc-h2 toc-link" data-title="remove-member-absence">Remove Member Absence</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#team-absences" class="toc-h1 toc-link" data-title="team-absences">Team Absences</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#add-team-absence" class="toc-h2 toc-link" data-title="add-team-absence">Add Team Absence</a>
+                  </li>
+                  <li>
+                    <a href="#remove-team-absence" class="toc-h2 toc-link" data-title="remove-team-absence">Remove Team Absence</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#errors" class="toc-h1 toc-link" data-title="errors">Errors</a>
           </li>
       </div>
-        <ul class="toc-footer">
-            <li><a href='#'>Sign Up for a Developer Key</a></li>
-            <li><a href='https://github.com/lord/slate'>Documentation Powered by Slate</a></li>
-        </ul>
     </div>
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='introduction'>Introduction</h1>
-<p>Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
+<p>Hi there! Thanks for checking out the Status Hero API. New to Status Hero? Go ahead and <a href="https://statushero.com/signup">create an account</a> - you&#39;ll need one to access the API.</p>
 
-<p>We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
+<p>Thoughts or feedback about our API implementation? <a href="https://statushero.com/contact">Let us know</a>!</p>
+<h1 id='format-and-versioning'>Format and Versioning</h1>
+<p>The Status Hero API is designed to be RESTful. All data is transferred in JSON.</p>
 
-<p>This example API documentation page was created with <a href="https://github.com/lord/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&#39;s documentation.</p>
+<p>API endpoints require HTTPS. You&#39;ll also notice the <code>v1</code> in each endpoint URL. This indicates that the latest API is currently version 1.0. If we ever have to break backwards compatibility the version number will be bumped.</p>
 <h1 id='authentication'>Authentication</h1>
+<p>The API uses header-based authentication. You&#39;ll need to provide two headers with each request:</p>
+
+<ul>
+<li><code>X-Team-ID</code></li>
+<li><code>X-API-Key</code></li>
+</ul>
+
+<p>Your API key and team ID can be found in your <a href="https://statushero.com/teams/current/edit">Team Settings</a> in Status Hero, under the API tab. You&#39;ll need to be an account administrator or team manager to view these credentials.</p>
+
+<p>All requests are scoped by Status Hero team. (Each Status Hero account can have multiple teams.)</p>
+
 <blockquote>
-<p>To authorize, use this code:</p>
+<p>Here&#39;s an example call with the headers:</p>
 </blockquote>
-<pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://statushero.com/api/v1/reports"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"X-TEAM-ID: your-team-id"</span> <span class="se">\</span>
+  -H <span class="s2">"X-API-KEY: your-api-key"</span>
+</code></pre><h1 id='pagination'>Pagination</h1>
+<p>Each API call that produces a collection of objects will only return 30 at a time. To page through the list, simply add the <code>page</code> parameter to the call.</p>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"api_endpoint_here"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-</code></pre>
 <blockquote>
-<p>Make sure to replace <code>meowmeowmeow</code> with your API key.</p>
+<p>Here&#39;s an example call with the page parameter:</p>
 </blockquote>
-
-<p>Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our <a href="http://example.com/developers">developer portal</a>.</p>
-
-<p>Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
-
-<p><code>Authorization: meowmeowmeow</code></p>
-
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
-</aside>
-<h1 id='kittens'>Kittens</h1><h2 id='get-all-kittens'>Get All Kittens</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">kittens</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="nx">get</span><span class="p">();</span>
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calico"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre>
-<p>This endpoint retrieves all kittens.</p>
-<h3 id='http-request'>HTTP Request</h3>
-<p><code>GET http://example.com/api/kittens</code></p>
-<h3 id='query-parameters'>Query Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>include_cats</td>
-<td>false</td>
-<td>If set to true, the result will also include cats.</td>
-</tr>
-<tr>
-<td>available</td>
-<td>true</td>
-<td>If set to false, the result will include kittens that have already been adopted.</td>
-</tr>
-</tbody></table>
-
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-<h2 id='get-a-specific-kitten'>Get a Specific Kitten</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://statushero.com/api/v1/reports?page=3"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"X-TEAM-ID: your-team-id"</span> <span class="se">\</span>
+  -H <span class="s2">"X-API-KEY: your-api-key"</span>
+</code></pre><h1 id='members'>Members</h1>
+<p>A <code>Member</code> is a user who belongs to your team.</p>
+<h2 id='get-all-members'>Get All Members</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://statushero.com/api/v1/members"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"X-TEAM-ID: your-team-id"</span> <span class="se">\</span>
+  -H <span class="s2">"X-API-KEY: your-api-key"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+  </span><span class="s2">"members"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5b73a1de-b26f-46fe-8f61-8355a2d9241b"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"emma-garrett"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EmmaGarrett"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"manager"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e9d25609-6cac-4286-99a7-5d08f29ecd8f"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"demo+emma@8012labs.com"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Emma"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Garrett"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"time_zone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pacific Time (US &amp; Canada)"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"administrator"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"emma-garrett"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"full_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Emma Garrett"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"initials"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eg"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"avatar_url"</span><span class="p">:</span><span class="w">
+          </span><span class="s2">"https://statushero.com/image/upload/c_fill/v1517855343/wssdbhfluhj2ipga0r8e"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a3bf073a-98eb-447d-abcd-7833760f334d"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hugh-oliver"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HughOliver"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"manager"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fb74f792-e555-4b77-8a3b-a62f525d2c25"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"demo+hugh@8012labs.com"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hugh"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Oliver"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"time_zone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"London"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"administrator"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hugh-oliver"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"full_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hugh Oliver"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"initials"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ho"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"avatar_url"</span><span class="p">:</span><span class="w">
+          </span><span class="s2">"http://res-4.cloudinary.com/status-hero-development/image/upload/c_fill/v1517855347/qesrin6dwioevihqxanr"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves a specific kitten.</p>
-
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+<p>This endpoint retrieves a collection of <code>Member</code> objects for each user on the team, ordered by last name. ()</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://statushero.com/api/v1/members</code></p>
+<h1 id='reports'>Reports</h1>
+<p>A <code>Report</code> is collection of status updates from each of your team members for a particular date.</p>
+<h2 id='get-all-reports'>Get All Reports</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://statushero.com/api/v1/reports"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"X-TEAM-ID: your-team-id"</span> <span class="se">\</span>
+  -H <span class="s2">"X-API-KEY: your-api-key"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"reports"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13855d03-0769-49a6-9198-9fd82226191e"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-02-05"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"team_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b9f52ce4-21d8-4a0d-8134-cda9d78da8fa"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"questions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"next"</span><span class="p">:</span><span class="w"> </span><span class="s2">"What are your goals for today?"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"blockers"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Any obstacles impeding your progress?"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"previous"</span><span class="p">:</span><span class="w"> </span><span class="s2">"What did you accomplish Friday?"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"previous_completed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Did you meet Friday's goals?"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"question_labels"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"next"</span><span class="p">:</span><span class="w"> </span><span class="s2">"today"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"blockers"</span><span class="p">:</span><span class="w"> </span><span class="s2">"blockers"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"previous"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Friday"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"metrics"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-02-05 13:48:00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"blocked_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"participation_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"absent_statuses_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"present_statuses_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"previous_completed_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://statushero.com/teams/alpha-team/reports/2018-02-05"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"completed_status_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"75dbb4af-c2a4-4fba-9dbf-d61234b16fee"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ccef1bea-661e-4857-8de1-1089f651ead9"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"38ac9d7b-80c5-4986-b1d8-b1783249c7d2"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"2ab4751c-c7ef-4b45-a79c-ac9822d708f6"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"efcae075-21f5-45c2-92db-e2079b3e83f2"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"b1b2da8b-67cc-40a7-9bed-e7fb59b36245"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"fd8dbb91-38b3-4e18-b716-98e259713f68"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"33579827-686f-43b7-8d84-fd2cc4b380d1"</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"77390f38-1cf5-441c-a1a4-a60242f97129"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-02-02"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"team_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b9f52ce4-21d8-4a0d-8134-cda9d78da8fa"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"questions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"next"</span><span class="p">:</span><span class="w"> </span><span class="s2">"What are your goals for today?"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"blockers"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Any obstacles impeding your progress?"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"previous"</span><span class="p">:</span><span class="w"> </span><span class="s2">"What did you accomplish yesterday?"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"previous_completed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Did you meet yesterday's goals?"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"question_labels"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"next"</span><span class="p">:</span><span class="w"> </span><span class="s2">"today"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"blockers"</span><span class="p">:</span><span class="w"> </span><span class="s2">"blockers"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"previous"</span><span class="p">:</span><span class="w"> </span><span class="s2">"yesterday"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"metrics"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-02-02 13:48:00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"blocked_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"participation_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"absent_statuses_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"present_statuses_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"previous_completed_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://statushero.com/teams/alpha-team/reports/2018-02-02"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"completed_status_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"75983cad-1ca7-4671-a264-92b5220fe5cd"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"f1f621c0-9d6b-4b03-adb3-468862439b58"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"6c2d67c4-6239-4489-813b-99a0e1b2a8e0"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"9a9e21f7-7d83-42c3-889b-1aa0a9ed3164"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"b8e969e5-df6d-4386-ae14-275d351c9ef7"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"dcefef9b-8871-44e1-b484-5d5447759aef"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"f53af99d-81ce-41e6-b3c2-50c861d0663a"</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves a collection of <code>Report</code> objects for your team, ordered by descending date.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET http://example.com/kittens/&lt;ID&gt;</code></p>
+<p><code>GET https://statushero.com/api/v1/reports</code></p>
+<h2 id='get-a-specific-report'>Get a Specific Report</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://statushero.com/api/v1/reports/2018-02-05"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"X-TEAM-ID: your-team-id"</span> <span class="se">\</span>
+  -H <span class="s2">"X-API-KEY: your-api-key"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"report"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13855d03-0769-49a6-9198-9fd82226191e"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-02-05"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"team_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b9f52ce4-21d8-4a0d-8134-cda9d78da8fa"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"questions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"next"</span><span class="p">:</span><span class="w"> </span><span class="s2">"What are your goals for today?"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"blockers"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Any obstacles impeding your progress?"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"previous"</span><span class="p">:</span><span class="w"> </span><span class="s2">"What did you accomplish Friday?"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"previous_completed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Did you meet Friday's goals?"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"question_labels"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"next"</span><span class="p">:</span><span class="w"> </span><span class="s2">"today"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"blockers"</span><span class="p">:</span><span class="w"> </span><span class="s2">"blockers"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"previous"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Friday"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"metrics"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-02-05 13:48:00"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"blocked_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"participation_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"absent_statuses_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"present_statuses_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"previous_completed_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://statushero.com/teams/alpha-team/reports/2018-02-05"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"completed_status_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="s2">"75dbb4af-c2a4-4fba-9dbf-d61234b16fee"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ccef1bea-661e-4857-8de1-1089f651ead9"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"38ac9d7b-80c5-4986-b1d8-b1783249c7d2"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"2ab4751c-c7ef-4b45-a79c-ac9822d708f6"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"efcae075-21f5-45c2-92db-e2079b3e83f2"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"b1b2da8b-67cc-40a7-9bed-e7fb59b36245"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"fd8dbb91-38b3-4e18-b716-98e259713f68"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"33579827-686f-43b7-8d84-fd2cc4b380d1"</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves a specific <code>Report</code> for your team.</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>GET https://statushero.com/api/v1/reports/{id}</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -389,37 +558,153 @@ Remember — a happy kitten is an authenticated kitten!
 </tr>
 </thead><tbody>
 <tr>
-<td>ID</td>
-<td>The ID of the kitten to retrieve</td>
+<td><code>id</code></td>
+<td>The ID or report date (in <code>YYYY-MM-DD</code> format) of the report to retrieve</td>
 </tr>
 </tbody></table>
-<h2 id='delete-a-specific-kitten'>Delete a Specific Kitten</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
-  -X DELETE
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<h1 id='statuses'>Statuses</h1>
+<p>Statuses are also know as &quot;check-ins&quot; in Status Hero. Each <code>Report</code> has a <code>Status</code> for each active team member (except for team Observers.)</p>
+<h2 id='get-all-statuses'>Get All Statuses</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://statushero.com/api/v1/statuses"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"X-TEAM-ID: your-team-id"</span> <span class="se">\</span>
+  -H <span class="s2">"X-API-KEY: your-api-key"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"deleted"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">":("</span><span class="w">
+  </span><span class="s2">"statuses"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ccef1bea-661e-4857-8de1-1089f651ead9"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"answers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"next"</span><span class="p">:</span><span class="w">
+          </span><span class="s2">"Prep and host this month's Redis meetup. We may be scrambling to fill the second speaker slot. Start clearing outstanding OAuth connector tickets."</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"blockers"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Waiting on facilities for room request"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"previous"</span><span class="p">:</span><span class="w">
+          </span><span class="s2">"Souped up the demo account for the #sales meeting. Ran throught the pitch a couple times with @IreneShaw."</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"previous_completed"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"blocked"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"completed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-02-05T15:00:00Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"previous_completed"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"report_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13855d03-0769-49a6-9198-9fd82226191e"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-02-05-emma-garrett"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attachments"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+      </span><span class="s2">"report_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-02-05"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Check-in from Emma Garrett (Portland) for February 5, 2018"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"url"</span><span class="p">:</span><span class="w">
+        </span><span class="s2">"https://statushero.com/teams/alpha-team/statuses/2018-02-05-emma-garrett"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"comment_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"9b122169-0f78-4ff4-85b8-cb999acd61c9"</span><span class="p">],</span><span class="w">
+      </span><span class="s2">"reaction_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"9b122169-0f78-4ff4-85b8-cb999acd61c9"</span><span class="p">],</span><span class="w">
+      </span><span class="s2">"status_activity_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"f5238ebd-6f24-41c8-826d-815bb514ac2d"</span><span class="p">],</span><span class="w">
+      </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e9d25609-6cac-4286-99a7-5d08f29ecd8f"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"demo+emma@8012labs.com"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Emma"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Garrett"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"time_zone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pacific Time (US &amp; Canada)"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"administrator"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"emma-garrett"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"full_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Emma Garrett"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"initials"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eg"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"avatar_url"</span><span class="p">:</span><span class="w">
+          </span><span class="s2">"https://statushero.com/image/upload/c_fill/v1517855343/wssdbhfluhj2ipga0r8e"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2ab4751c-c7ef-4b45-a79c-ac9822d708f6"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"answers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"next"</span><span class="p">:</span><span class="w">
+          </span><span class="s2">"Get CI runs to be _much faster_, both in locally and in all branch runs. Lean on @GracePearson if necessary for SSDs."</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"blockers"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"previous"</span><span class="p">:</span><span class="w">
+          </span><span class="s2">"* Got through 22 of the 34 outstanding defects for the OAuth connector</span><span class="se">\n</span><span class="s2">* Reconfig'd Devops dashboard to poll more often #optimization"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"previous_completed"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"blocked"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"completed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-02-05T14:51:00Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"previous_completed"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"report_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13855d03-0769-49a6-9198-9fd82226191e"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-02-05-hugh-oliver"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attachments"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+      </span><span class="s2">"report_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-02-05"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Check-in from Hugh Oliver (London) for February 5, 2018"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"url"</span><span class="p">:</span><span class="w">
+        </span><span class="s2">"https://statushero.com/teams/alpha-team/statuses/2018-02-05-hugh-oliver"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"comment_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+      </span><span class="s2">"reaction_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+      </span><span class="s2">"status_activity_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+      </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fb74f792-e555-4b77-8a3b-a62f525d2c25"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"demo+hugh@8012labs.com"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hugh"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Oliver"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"time_zone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"London"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"administrator"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hugh-oliver"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"full_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hugh Oliver"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"initials"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ho"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"avatar_url"</span><span class="p">:</span><span class="w">
+          </span><span class="s2">"http://res-4.cloudinary.com/status-hero-development/image/upload/c_fill/v1517855347/qesrin6dwioevihqxanr"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint deletes a specific kitten.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
-<p><code>DELETE http://example.com/kittens/&lt;ID&gt;</code></p>
+<p>This endpoint retrieves a collection of <code>Status</code> objects (check-ins) for your team, ordered by descending submission time.</p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>GET https://statushero.com/api/v1/statuses</code></p>
+<h2 id='get-a-specific-status'>Get a Specific Status</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://statushero.com/api/v1/statuses/2ab4751c-c7ef-4b45-a79c-ac9822d708f6"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"X-TEAM-ID: your-team-id"</span> <span class="se">\</span>
+  -H <span class="s2">"X-API-KEY: your-api-key"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ccef1bea-661e-4857-8de1-1089f651ead9"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"answers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"next"</span><span class="p">:</span><span class="w">
+        </span><span class="s2">"Prep and host this month's Redis meetup. We may be scrambling to fill the second speaker slot. Start clearing outstanding OAuth connector tickets."</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"blockers"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Waiting on facilities for room request"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"previous"</span><span class="p">:</span><span class="w">
+        </span><span class="s2">"Souped up the demo account for the #sales meeting. Ran throught the pitch a couple times with @IreneShaw."</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"previous_completed"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"blocked"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"completed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-02-05T15:00:00Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"previous_completed"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"report_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13855d03-0769-49a6-9198-9fd82226191e"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-02-05-emma-garrett"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attachments"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"report_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-02-05"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Check-in from Emma Garrett (Portland) for February 5, 2018"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"url"</span><span class="p">:</span><span class="w">
+      </span><span class="s2">"https://statushero.com/teams/alpha-team/statuses/2018-02-05-emma-garrett"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"comment_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"9b122169-0f78-4ff4-85b8-cb999acd61c9"</span><span class="p">],</span><span class="w">
+    </span><span class="s2">"reaction_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"9b122169-0f78-4ff4-85b8-cb999acd61c9"</span><span class="p">],</span><span class="w">
+    </span><span class="s2">"status_activity_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"f5238ebd-6f24-41c8-826d-815bb514ac2d"</span><span class="p">],</span><span class="w">
+    </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e9d25609-6cac-4286-99a7-5d08f29ecd8f"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"demo+emma@8012labs.com"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Emma"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Garrett"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"time_zone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pacific Time (US &amp; Canada)"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"administrator"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"emma-garrett"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"full_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Emma Garrett"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"initials"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eg"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"avatar_url"</span><span class="p">:</span><span class="w">
+        </span><span class="s2">"https://statushero.com/image/upload/c_fill/v1517855343/wssdbhfluhj2ipga0r8e"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves a specific <code>Status</code> (check-in).</p>
+<h3 id='http-request-5'>HTTP Request</h3>
+<p><code>GET https://statushero.com/api/v1/status/{id}</code></p>
 <h3 id='url-parameters-2'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -428,64 +713,345 @@ Remember — a happy kitten is an authenticated kitten!
 </tr>
 </thead><tbody>
 <tr>
-<td>ID</td>
-<td>The ID of the kitten to delete</td>
+<td><code>id</code></td>
+<td>The ID or slug of the status to retrieve</td>
 </tr>
 </tbody></table>
-<h1 id='errors'>Errors</h1>
-<aside class="notice">This error section is stored in a separate file in `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files...just save them to the `includes` folder and add them to the top of your `index.md`'s frontmatter. Files are included in the order listed.</aside>
-
-<p>The Kittn API uses the following error codes:</p>
+<h1 id='status-activities'>Status Activities</h1>
+<p>Status Activities consist of data, often from other tools, that are associated with individual status updates (check-ins). For example, Jira issue updates or GitHub pushes. A <code>StatusActivity</code> belongs to a <code>Status</code>.</p>
+<h2 id='get-a-specific-status-activity'>Get a Specific Status Activity</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://statushero.com/api/v1/statuses_activities/f5238ebd-6f24-41c8-826d-815bb514ac2d"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"X-TEAM-ID: your-team-id"</span> <span class="se">\</span>
+  -H <span class="s2">"X-API-KEY: your-api-key"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"status_activity"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f5238ebd-6f24-41c8-826d-815bb514ac2d"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ccef1bea-661e-4857-8de1-1089f651ead9"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"trello"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-02-05T14:20:00Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w">
+      </span><span class="s2">"CA Board: moved </span><span class="se">\"</span><span class="s2">Index wireless hard drive</span><span class="se">\"</span><span class="s2"> from </span><span class="se">\"</span><span class="s2">Dev</span><span class="se">\"</span><span class="s2"> to </span><span class="se">\"</span><span class="s2">Stage</span><span class="se">\"</span><span class="s2">"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"html_description"</span><span class="p">:</span><span class="w">
+      </span><span class="s2">"&lt;a href='https://trello.com/b/vee7/ca-board'&gt;CA Board&lt;/a&gt;: moved </span><span class="se">\"</span><span class="s2">Index wireless hard drive</span><span class="se">\"</span><span class="s2"> from </span><span class="se">\"</span><span class="s2">Dev</span><span class="se">\"</span><span class="s2"> to </span><span class="se">\"</span><span class="s2">Stage</span><span class="se">\"</span><span class="s2">"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"url"</span><span class="p">:</span><span class="w">
+      </span><span class="s2">"https://statushero.com/teams/alpha-team/statuses/2018-02-05-emma-garrett"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves a specific <code>StatusActivity</code> for a <code>Status</code> (check-in). A call to the statuses endpoint will return an array of <code>StatusActivity</code> ids for each <code>Status</code>)</p>
+<h3 id='http-request-6'>HTTP Request</h3>
+<p><code>GET https://statushero.com/api/v1/status_activities/{id}</code></p>
 
 <table><thead>
 <tr>
-<th>Error Code</th>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>id</code></td>
+<td>The ID of the status activity record to retrieve</td>
+</tr>
+</tbody></table>
+<h2 id='add-a-status-activity'>Add a Status Activity</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://statushero.com/api/v1/status_activities"</span> <span class="se">\</span>
+  -X POST <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"X-TEAM-ID: your-team-id"</span> <span class="se">\</span>
+  -H <span class="s2">"X-API-KEY: your-api-key"</span> <span class="se">\</span>
+  -d <span class="s1">'{"email":"adam@example.com", "source":"Kanban Board", "description": "Moved user story Reporting from Doing to QA"}'</span> <span class="se">\</span>
+</code></pre>
+<p>Use this endpoint to push activities from your external tools to Status Hero. You&#39;ll need to include the fields below that Status Hero can match up the activity with the appropriate team member and check-in. All fields are required unless noted. Returns a <code>201 Created</code> when successful.</p>
+<h3 id='http-request-7'>HTTP Request</h3>
+<p><code>POST https://statushero.com/api/v1/status_activities</code></p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>email</code></td>
+<td>Email address for the associated team member. Must match what&#39;s in Status Hero.</td>
+<td><code>adam@example.com</code></td>
+</tr>
+<tr>
+<td><code>source</code></td>
+<td>Source of the activity</td>
+<td><code>Kanban Board</code></td>
+</tr>
+<tr>
+<td><code>source_url</code></td>
+<td>Optional. An external URL for the source of the activity</td>
+<td><code>https://our-kanban-board.example.com</code></td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>A brief, plain text description of the activity</td>
+<td><code>Moved user story &quot;Reporting&quot; from &quot;Doing&quot; to &quot;QA&quot;</code></td>
+</tr>
+<tr>
+<td><code>html_description</code></td>
+<td>Optional. A brief description of the activity with any necessary links or html markup. If you leave this out, Status Hero will fall back on the plain text description field</td>
+<td><code>Moved user story &lt;a href=&#39;http://stories/123&#39;&gt;Reporting&lt;/a&gt; from &lt;b&gt;Doing&lt;/b&gt; to &lt;b&gt;QA&lt;/b&gt;</code></td>
+</tr>
+</tbody></table>
+<h1 id='comments'>Comments</h1>
+<p>A <code>Comment</code> is a message you or your team members can add to another check-in. A <code>Comment</code> belongs to a <code>Status</code> record.</p>
+<h2 id='get-a-specific-comment'>Get a Specific Comment</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://statushero.com/api/v1/comments/{id}"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"X-TEAM-ID: your-team-id"</span> <span class="se">\</span>
+  -H <span class="s2">"X-API-KEY: your-api-key"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"comment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9b122169-0f78-4ff4-85b8-cb999acd61c9"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"body"</span><span class="p">:</span><span class="w">
+      </span><span class="s2">"You can't generate the capacitor without synthesizing the neural USB matrix"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-02-05T11:00:00Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ccef1bea-661e-4857-8de1-1089f651ead9"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Emma added a comment to their February 5 check-in"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"url"</span><span class="p">:</span><span class="w">
+      </span><span class="s2">"https://statushero.com/teams/alpha-team/statuses/2018-02-05-emma-garrett"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e9d25609-6cac-4286-99a7-5d08f29ecd8f"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"demo+emma@8012labs.com"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Emma"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Garrett"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"time_zone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pacific Time (US &amp; Canada)"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"administrator"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"emma-garrett"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"full_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Emma Garrett"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"initials"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eg"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"avatar_url"</span><span class="p">:</span><span class="w">
+        </span><span class="s2">"https://statushero.com/image/upload/c_fill/v1517855343/wssdbhfluhj2ipga0r8e"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves a <code>Comment</code> for a status update (check-in). (A call to the statuses endpoint will return an array of <code>Comment</code> ids for each <code>Status</code>.)</p>
+<h3 id='http-request-8'>HTTP Request</h3>
+<p><code>GET https://statushero.com/api/v1/comments/{id}</code></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>id</code></td>
+<td>The ID of the comment record to retrieve</td>
+</tr>
+</tbody></table>
+<h1 id='reactions'>Reactions</h1>
+<p>A <code>Reaction</code> is quick way for team members to add a signal of feedback to another check-in. In the Status Hero UI, a reaction consists of an emoji, like a thumbs-up or a smiley face. A <code>Reaction</code> belongs to a <code>Status</code> record.</p>
+<h2 id='get-a-specific-reaction'>Get a Specific Reaction</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://statushero.com/api/v1/reactions/{id}"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"X-TEAM-ID: your-team-id"</span> <span class="se">\</span>
+  -H <span class="s2">"X-API-KEY: your-api-key"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"reaction"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b75edfc0-89a6-40d6-9ed6-c4139464eac7"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"thumbsup"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-02-05T18:30:13Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ccef1bea-661e-4857-8de1-1089f651ead9"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Adam reacted to a February 5 check-in from Emma with :thumbsup:"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"url"</span><span class="p">:</span><span class="w">
+      </span><span class="s2">"https://statushero.com/teams/alpha-team/statuses/2018-02-05-emma-garrett"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aaca3009-4ed7-4e3e-b746-673faaf4dd75"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"demo+adam@8012labs.com"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Adam"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Young"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"time_zone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Eastern Time (US &amp; Canada)"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"administrator"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"adam-young"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"full_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Adam Young"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"initials"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ay"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"avatar_url"</span><span class="p">:</span><span class="w">
+        </span><span class="s2">"http://res-4.cloudinary.com/status-hero-development/image/upload/c_fill/v1517855426/fphsvutenjphg82yv49q"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves a <code>Reaction</code> for a status update (check-in). (A call to the statuses endpoint will return an array of <code>Reaction</code> ids for each <code>Status</code>.)</p>
+<h3 id='http-request-9'>HTTP Request</h3>
+<p><code>GET https://statushero.com/api/v1/reactions/{id}</code></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>id</code></td>
+<td>The ID of the reaction record to retrieve</td>
+</tr>
+</tbody></table>
+<h1 id='member-absences'>Member Absences</h1>
+<p>Add or remove future vacation or leave dates for individual team members.</p>
+<h2 id='add-member-absence'>Add Member Absence</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://statushero.com/api/v1/member_absences/adam-young"</span> <span class="se">\</span>
+  -X POST <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"X-TEAM-ID: your-team-id"</span> <span class="se">\</span>
+  -H <span class="s2">"X-API-KEY: your-api-key"</span>
+  -d <span class="s1">'{"date": "2018-04-28"}'</span>
+</code></pre>
+<p>This idempotent endpoint creates a vacation or leave day for an individual team <code>Member</code>. You can get the IDs of team members with a call to the members endpoint. Returns a <code>201 Created</code> when successful, or <code>202 Accepted</code> if the date is already set as an absent date.</p>
+<h3 id='http-request-10'>HTTP Request</h3>
+<p><code>POST https://statushero.com/api/v1/member_absences/{id}</code></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>id</code></td>
+<td>The ID or slug of the team member</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>date</code></td>
+<td>The date of the absence to create (in <code>YYYY-MM-DD</code> format)</td>
+</tr>
+</tbody></table>
+<h2 id='remove-member-absence'>Remove Member Absence</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://statushero.com/api/v1/member_absences/adam-young/2018-04-28"</span> <span class="se">\</span>
+  -X DELETE <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"X-TEAM-ID: your-team-id"</span> <span class="se">\</span>
+  -H <span class="s2">"X-API-KEY: your-api-key"</span>
+</code></pre>
+<p>This endpoint removes a vacation or leave day for an individual team <code>Member</code>. You can get the IDs of team members with a call to the members endpoint. Returns a <code>204 No Content</code> if successful.</p>
+<h3 id='http-request-11'>HTTP Request</h3>
+<p><code>DELETE https://statushero.com/api/v1/member_absences/{id}/{date}</code></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>id</code></td>
+<td>The ID or slug of the team member</td>
+</tr>
+<tr>
+<td><code>date</code></td>
+<td>The date of the absence to create (in <code>YYYY-MM-DD</code> format)</td>
+</tr>
+</tbody></table>
+<h1 id='team-absences'>Team Absences</h1>
+<p>Add or remove future team-wide holidays.</p>
+<h2 id='add-team-absence'>Add Team Absence</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://statushero.com/api/v1/team_absences"</span> <span class="se">\</span>
+  -X POST <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"X-TEAM-ID: your-team-id"</span> <span class="se">\</span>
+  -H <span class="s2">"X-API-KEY: your-api-key"</span>
+  -d <span class="s1">'{"date": "2018-04-28"}'</span>
+</code></pre>
+<p>This idempotent endpoint creates a team-wide holiday. Returns a <code>201 Created</code> when successful, or <code>202 Accepted</code> if the date is already set as a holiday.</p>
+<h3 id='http-request-12'>HTTP Request</h3>
+<p><code>POST https://statushero.com/api/v1/team_absences</code></p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>date</code></td>
+<td>The date of the absence to create (in <code>YYYY-MM-DD</code> format)</td>
+</tr>
+</tbody></table>
+<h2 id='remove-team-absence'>Remove Team Absence</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://statushero.com/api/v1/team_absences/2018-04-28"</span> <span class="se">\</span>
+  -X DELETE <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"X-TEAM-ID: your-team-id"</span> <span class="se">\</span>
+  -H <span class="s2">"X-API-KEY: your-api-key"</span>
+</code></pre>
+<p>This endpoint removes a team-wide holiday for the specified date. Returns a <code>204 No Content</code> if successful.</p>
+<h3 id='http-request-13'>HTTP Request</h3>
+<p><code>DELETE https://statushero.com/api/v1/team_absences/{date}</code></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>date</code></td>
+<td>The date of the absence to create (in <code>YYYY-MM-DD</code> format)</td>
+</tr>
+</tbody></table>
+<h1 id='errors'>Errors</h1>
+<p>The Status Hero API uses the following error codes:</p>
+
+<table><thead>
+<tr>
+<th>Code</th>
 <th>Meaning</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>400</td>
-<td>Bad Request -- Your request sucks.</td>
+<td><code>400</code></td>
+<td>Bad Request - Your request is invalid.</td>
 </tr>
 <tr>
-<td>401</td>
-<td>Unauthorized -- Your API key is wrong.</td>
+<td><code>401</code></td>
+<td>Unauthorized - Your credentials are invalid.</td>
 </tr>
 <tr>
-<td>403</td>
-<td>Forbidden -- The kitten requested is hidden for administrators only.</td>
+<td><code>404</code></td>
+<td>Not Found - The resource could not be found.</td>
 </tr>
 <tr>
-<td>404</td>
-<td>Not Found -- The specified kitten could not be found.</td>
+<td><code>405</code></td>
+<td>Method Not Allowed - You tried to access a resource with an invalid method.</td>
 </tr>
 <tr>
-<td>405</td>
-<td>Method Not Allowed -- You tried to access a kitten with an invalid method.</td>
+<td><code>406</code></td>
+<td>Not Acceptable - You requested a format that isn&#39;t JSON.</td>
 </tr>
 <tr>
-<td>406</td>
-<td>Not Acceptable -- You requested a format that isn&#39;t json.</td>
+<td><code>410</code></td>
+<td>Gone - The resource requested has been removed from our servers.</td>
 </tr>
 <tr>
-<td>410</td>
-<td>Gone -- The kitten requested has been removed from our servers.</td>
+<td><code>429</code></td>
+<td>Too Many Requests - Slow down!</td>
 </tr>
 <tr>
-<td>418</td>
-<td>I&#39;m a teapot.</td>
+<td><code>500</code></td>
+<td>Internal Server Error - We had a problem with our server.</td>
 </tr>
 <tr>
-<td>429</td>
-<td>Too Many Requests -- You&#39;re requesting too many kittens! Slow down!</td>
-</tr>
-<tr>
-<td>500</td>
-<td>Internal Server Error -- We had a problem with our server. Try again later.</td>
-</tr>
-<tr>
-<td>503</td>
-<td>Service Unavailable -- We&#39;re temporarily offline for maintenance. Please try again later.</td>
+<td><code>503</code></td>
+<td>Service Unavailable - We&#39;re temporarily offline for maintenance.</td>
 </tr>
 </tbody></table>
 
@@ -493,9 +1059,6 @@ Remember — a happy kitten is an authenticated kitten!
       <div class="dark-box">
           <div class="lang-selector">
                 <a href="#" data-language-name="shell">shell</a>
-                <a href="#" data-language-name="ruby">ruby</a>
-                <a href="#" data-language-name="python">python</a>
-                <a href="#" data-language-name="javascript">javascript</a>
           </div>
       </div>
     </div>
