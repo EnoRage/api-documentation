@@ -111,7 +111,7 @@ curl "https://statushero.com/api/v1/members" \
         "full_name": "Hugh Oliver",
         "initials": "ho",
         "avatar_url":
-          "http://res-4.cloudinary.com/status-hero-development/image/upload/c_fill/v1517855347/qesrin6dwioevihqxanr"
+          "https://://statushero.com/image/upload/c_fill/v1517855347/qesrin6dwioevihqxanr"
       }
     }
   ]
@@ -373,7 +373,7 @@ curl "https://statushero.com/api/v1/statuses" \
         "full_name": "Hugh Oliver",
         "initials": "ho",
         "avatar_url":
-          "http://res-4.cloudinary.com/status-hero-development/image/upload/c_fill/v1517855347/qesrin6dwioevihqxanr"
+          "https://://statushero.com/image/upload/c_fill/v1517855347/qesrin6dwioevihqxanr"
       }
     }
   ]
@@ -607,7 +607,7 @@ curl "https://statushero.com/api/v1/reactions/{id}" \
       "full_name": "Adam Young",
       "initials": "ay",
       "avatar_url":
-        "http://res-4.cloudinary.com/status-hero-development/image/upload/c_fill/v1517855426/fphsvutenjphg82yv49q"
+        "https://://statushero.com/image/upload/c_fill/v1517855426/fphsvutenjphg82yv49q"
     }
   }
 }
