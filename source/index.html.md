@@ -30,7 +30,7 @@ The API uses header-based authentication. You'll need to provide two headers wit
 * `X-Team-ID`
 * `X-API-Key`
 
-Your API key and team ID can be found in your [Team Settings](https://statushero.com/teams/current/edit) in Status Hero, under the API tab. You'll need to be an account administrator or team manager to view these credentials.
+Your team ID and team API key can be found in your [Team Settings](https://statushero.com/teams/current/edit) in Status Hero, under the API tab. You'll need to be an account administrator or team manager to view these credentials.
 
 All requests are scoped by Status Hero team. (Each Status Hero account can have multiple teams.)
 
@@ -40,7 +40,7 @@ All requests are scoped by Status Hero team. (Each Status Hero account can have 
 curl "https://statushero.com/api/v1/reports" \
   -H "Content-Type: application/json" \
   -H "X-TEAM-ID: your-team-id" \
-  -H "X-API-KEY: your-api-key"
+  -H "X-API-KEY: your-team-api-key"
 ```
 
 # Pagination
@@ -53,7 +53,7 @@ Each API call that produces a collection of objects will only return 30 at a tim
 curl "https://statushero.com/api/v1/reports?page=3" \
   -H "Content-Type: application/json" \
   -H "X-TEAM-ID: your-team-id" \
-  -H "X-API-KEY: your-api-key"
+  -H "X-API-KEY: your-team-api-key"
 ```
 
 # Members
@@ -66,7 +66,7 @@ A `Member` is a user who belongs to your team.
 curl "https://statushero.com/api/v1/members" \
   -H "Content-Type: application/json" \
   -H "X-TEAM-ID: your-team-id" \
-  -H "X-API-KEY: your-api-key"
+  -H "X-API-KEY: your-team-api-key"
 ```
 
 > The above command returns JSON structured like this:
@@ -128,9 +128,57 @@ Or optionally:
 
 `GET https://statushero.com/api/v1/members?q={search_term}`
 
-| Query Parameter | Description                                                              |
-| --------- | ------------------------------------------------------------------------ |
-| `q`      | Narrow the returned list with a search by a whole or partial match of last name, first name, or email address |
+| Query Parameter | Description                                                                                                   |
+| --------------- | ------------------------------------------------------------------------------------------------------------- |
+| `q`             | Narrow the returned list with a search by a whole or partial match of last name, first name, or email address |
+
+## Get a Specific Team Member
+
+```shell
+curl "https://statushero.com/api/v1/members/5b73a1de-b26f-46fe-8f61-8355a2d9241b" \
+  -H "Content-Type: application/json" \
+  -H "X-TEAM-ID: your-team-id" \
+  -H "X-API-KEY: your-team-api-key"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "member": {
+    "id": "5b73a1de-b26f-46fe-8f61-8355a2d9241b",
+    "slug": "emma-garrett",
+    "username": "EmmaGarrett",
+    "role": "active",
+    "manager": false,
+    "user": {
+      "id": "e9d25609-6cac-4286-99a7-5d08f29ecd8f",
+      "email": "demo+emma@8012labs.com",
+      "first_name": "Emma",
+      "last_name": "Garrett",
+      "time_zone": "Pacific Time (US & Canada)",
+      "administrator": false,
+      "slug": "emma-garrett",
+      "full_name": "Emma Garrett",
+      "initials": "eg",
+      "avatar_url":
+        "https://statushero.com/image/upload/c_fill/v1517855343/wssdbhfluhj2ipga0r8e"
+    }
+  }
+}
+```
+
+This endpoint retrieves a specific team member.
+
+### HTTP Request
+
+`GET https://statushero.com/api/v1/members/{id}`
+
+### URL Parameters
+
+| Parameter | Description                                       |
+| --------- | ------------------------------------------------- |
+| `id`      | The ID or URL slug of the team member to retrieve |
 
 # Reports
 
@@ -142,7 +190,7 @@ A `Report` is collection of status updates from each of your team members for a 
 curl "https://statushero.com/api/v1/reports" \
   -H "Content-Type: application/json" \
   -H "X-TEAM-ID: your-team-id" \
-  -H "X-API-KEY: your-api-key"
+  -H "X-API-KEY: your-team-api-key"
 ```
 
 > The above command returns JSON structured like this:
@@ -235,7 +283,7 @@ This endpoint retrieves a collection of `Report` objects for your team, ordered 
 curl "https://statushero.com/api/v1/reports/2018-02-05" \
   -H "Content-Type: application/json" \
   -H "X-TEAM-ID: your-team-id" \
-  -H "X-API-KEY: your-api-key"
+  -H "X-API-KEY: your-team-api-key"
 ```
 
 > The above command returns JSON structured like this:
@@ -292,7 +340,6 @@ This endpoint retrieves a specific `Report` for your team.
 | --------- | ------------------------------------------------------------------------ |
 | `id`      | The ID or report date (in `YYYY-MM-DD` format) of the report to retrieve |
 
-
 # Statuses
 
 Statuses are also know as "check-ins" in Status Hero. Each `Report` has a `Status` for each active team member (except for team Observers.)
@@ -303,7 +350,7 @@ Statuses are also know as "check-ins" in Status Hero. Each `Report` has a `Statu
 curl "https://statushero.com/api/v1/statuses" \
   -H "Content-Type: application/json" \
   -H "X-TEAM-ID: your-team-id" \
-  -H "X-API-KEY: your-api-key"
+  -H "X-API-KEY: your-team-api-key"
 ```
 
 > The above command returns JSON structured like this:
@@ -401,7 +448,7 @@ This endpoint retrieves a collection of `Status` objects (check-ins) for your te
 curl "https://statushero.com/api/v1/statuses/2ab4751c-c7ef-4b45-a79c-ac9822d708f6" \
   -H "Content-Type: application/json" \
   -H "X-TEAM-ID: your-team-id" \
-  -H "X-API-KEY: your-api-key"
+  -H "X-API-KEY: your-team-api-key"
 ```
 
 > The above command returns JSON structured like this:
@@ -452,7 +499,7 @@ This endpoint retrieves a specific `Status` (check-in).
 
 ### HTTP Request
 
-`GET https://statushero.com/api/v1/status/{id}`
+`GET https://statushero.com/api/v1/statuses/{id}`
 
 ### URL Parameters
 
@@ -470,7 +517,7 @@ Status Activities consist of data, often from other tools, that are associated w
 curl "https://statushero.com/api/v1/statuses_activities/f5238ebd-6f24-41c8-826d-815bb514ac2d" \
   -H "Content-Type: application/json" \
   -H "X-TEAM-ID: your-team-id" \
-  -H "X-API-KEY: your-api-key"
+  -H "X-API-KEY: your-team-api-key"
 ```
 
 > The above command returns JSON structured like this:
@@ -509,7 +556,7 @@ curl "https://statushero.com/api/v1/status_activities" \
   -X POST \
   -H "Content-Type: application/json" \
   -H "X-TEAM-ID: your-team-id" \
-  -H "X-API-KEY: your-api-key" \
+  -H "X-API-KEY: your-team-api-key" \
   -d '{"email":"adam@example.com", "source":"Kanban Board", "description": "Moved user story Reporting from Doing to QA"}' \
 ```
 
@@ -537,7 +584,7 @@ A `Comment` is a message you or your team members can add to another check-in. A
 curl "https://statushero.com/api/v1/comments/{id}" \
   -H "Content-Type: application/json" \
   -H "X-TEAM-ID: your-team-id" \
-  -H "X-API-KEY: your-api-key"
+  -H "X-API-KEY: your-team-api-key"
 ```
 
 > The above command returns JSON structured like this:
@@ -576,8 +623,8 @@ This endpoint retrieves a `Comment` for a status update (check-in). (A call to t
 
 `GET https://statushero.com/api/v1/comments/{id}`
 
-| Parameter | Description                               |
-| --------- | ----------------------------------------- |
+| Parameter | Description                              |
+| --------- | ---------------------------------------- |
 | `id`      | The ID of the comment record to retrieve |
 
 # Reactions
@@ -590,7 +637,7 @@ A `Reaction` is quick way for team members to add a signal of feedback to anothe
 curl "https://statushero.com/api/v1/reactions/{id}" \
   -H "Content-Type: application/json" \
   -H "X-TEAM-ID: your-team-id" \
-  -H "X-API-KEY: your-api-key"
+  -H "X-API-KEY: your-team-api-key"
 ```
 
 > The above command returns JSON structured like this:
@@ -632,7 +679,6 @@ This endpoint retrieves a `Reaction` for a status update (check-in). (A call to 
 | --------- | ----------------------------------------- |
 | `id`      | The ID of the reaction record to retrieve |
 
-
 # Member Absences
 
 Add or remove future vacation or leave dates for individual team members.
@@ -644,7 +690,7 @@ curl "https://statushero.com/api/v1/member_absences/adam-young" \
   -X POST \
   -H "Content-Type: application/json" \
   -H "X-TEAM-ID: your-team-id" \
-  -H "X-API-KEY: your-api-key"
+  -H "X-API-KEY: your-team-api-key"
   -d '{"date": "2018-04-28"}'
 ```
 
@@ -654,14 +700,13 @@ This idempotent endpoint creates a vacation or leave day for an individual team 
 
 `POST https://statushero.com/api/v1/member_absences/{id}`
 
-| Parameter | Description                                                              |
-| --------- | ------------------------------------------------------------------------ |
+| Parameter | Description                       |
+| --------- | --------------------------------- |
 | `id`      | The ID or slug of the team member |
 
-
-| Field | Description                                                              |
-| --------- | ------------------------------------------------------------------------ |
-| `date`    | The date of the absence to create (in `YYYY-MM-DD` format) |
+| Field  | Description                                                |
+| ------ | ---------------------------------------------------------- |
+| `date` | The date of the absence to create (in `YYYY-MM-DD` format) |
 
 ## Remove Member Absence
 
@@ -670,9 +715,8 @@ curl "https://statushero.com/api/v1/member_absences/adam-young/2018-04-28" \
   -X DELETE \
   -H "Content-Type: application/json" \
   -H "X-TEAM-ID: your-team-id" \
-  -H "X-API-KEY: your-api-key"
+  -H "X-API-KEY: your-team-api-key"
 ```
-
 
 This endpoint removes a vacation or leave day for an individual team `Member`. You can get the IDs of team members with a call to the members endpoint. Returns a `204 No Content` if successful.
 
@@ -680,11 +724,10 @@ This endpoint removes a vacation or leave day for an individual team `Member`. Y
 
 `DELETE https://statushero.com/api/v1/member_absences/{id}/{date}`
 
-| Parameter | Description                                                              |
-| --------- | ------------------------------------------------------------------------ |
-| `id`      | The ID or slug of the team member |
+| Parameter | Description                                                |
+| --------- | ---------------------------------------------------------- |
+| `id`      | The ID or slug of the team member                          |
 | `date`    | The date of the absence to create (in `YYYY-MM-DD` format) |
-
 
 # Team Absences
 
@@ -697,7 +740,7 @@ curl "https://statushero.com/api/v1/team_absences" \
   -X POST \
   -H "Content-Type: application/json" \
   -H "X-TEAM-ID: your-team-id" \
-  -H "X-API-KEY: your-api-key"
+  -H "X-API-KEY: your-team-api-key"
   -d '{"date": "2018-04-28"}'
 ```
 
@@ -707,9 +750,9 @@ This idempotent endpoint creates a team-wide holiday. Returns a `201 Created` wh
 
 `POST https://statushero.com/api/v1/team_absences`
 
-| Field | Description                                                              |
-| --------- | ------------------------------------------------------------------------ |
-| `date`    | The date of the absence to create (in `YYYY-MM-DD` format) |
+| Field  | Description                                                |
+| ------ | ---------------------------------------------------------- |
+| `date` | The date of the absence to create (in `YYYY-MM-DD` format) |
 
 ## Remove Team Absence
 
@@ -718,9 +761,8 @@ curl "https://statushero.com/api/v1/team_absences/2018-04-28" \
   -X DELETE \
   -H "Content-Type: application/json" \
   -H "X-TEAM-ID: your-team-id" \
-  -H "X-API-KEY: your-api-key"
+  -H "X-API-KEY: your-team-api-key"
 ```
-
 
 This endpoint removes a team-wide holiday for the specified date. Returns a `204 No Content` if successful.
 
@@ -728,6 +770,6 @@ This endpoint removes a team-wide holiday for the specified date. Returns a `204
 
 `DELETE https://statushero.com/api/v1/team_absences/{date}`
 
-| Parameter | Description                                                              |
-| --------- | ------------------------------------------------------------------------ |
+| Parameter | Description                                                |
+| --------- | ---------------------------------------------------------- |
 | `date`    | The date of the absence to create (in `YYYY-MM-DD` format) |
