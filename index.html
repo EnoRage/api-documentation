@@ -238,6 +238,9 @@
                   <li>
                     <a href="#get-all-members" class="toc-h2 toc-link" data-title="get-all-members">Get All Members</a>
                   </li>
+                  <li>
+                    <a href="#get-a-specific-team-member" class="toc-h2 toc-link" data-title="get-a-specific-team-member">Get a Specific Team Member</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -430,6 +433,52 @@
 <td>Narrow the returned list with a search by a whole or partial match of last name, first name, or email address</td>
 </tr>
 </tbody></table>
+<h2 id='get-a-specific-team-member'>Get a Specific Team Member</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://statushero.com/api/v1/members/5b73a1de-b26f-46fe-8f61-8355a2d9241b"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"X-TEAM-ID: your-team-id"</span> <span class="se">\</span>
+  -H <span class="s2">"X-API-KEY: your-team-api-key"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"member"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5b73a1de-b26f-46fe-8f61-8355a2d9241b"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"emma-garrett"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EmmaGarrett"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"manager"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e9d25609-6cac-4286-99a7-5d08f29ecd8f"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"demo+emma@8012labs.com"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Emma"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Garrett"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"time_zone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pacific Time (US &amp; Canada)"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"administrator"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"emma-garrett"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"full_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Emma Garrett"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"initials"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eg"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"avatar_url"</span><span class="p">:</span><span class="w">
+        </span><span class="s2">"https://statushero.com/image/upload/c_fill/v1517855343/wssdbhfluhj2ipga0r8e"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves a specific team member.</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET https://statushero.com/api/v1/members/{id}</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>id</code></td>
+<td>The ID or URL slug of the team member to retrieve</td>
+</tr>
+</tbody></table>
 <h1 id='reports'>Reports</h1>
 <p>A <code>Report</code> is collection of status updates from each of your team members for a particular date.</p>
 <h2 id='get-all-reports'>Get All Reports</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://statushero.com/api/v1/reports"</span> <span class="se">\</span>
@@ -515,7 +564,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves a collection of <code>Report</code> objects for your team, ordered by descending date.</p>
-<h3 id='http-request-2'>HTTP Request</h3>
+<h3 id='http-request-3'>HTTP Request</h3>
 <p><code>GET https://statushero.com/api/v1/reports</code></p>
 <h2 id='get-a-specific-report'>Get a Specific Report</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://statushero.com/api/v1/reports/2018-02-05"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
@@ -564,9 +613,9 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves a specific <code>Report</code> for your team.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
+<h3 id='http-request-4'>HTTP Request</h3>
 <p><code>GET https://statushero.com/api/v1/reports/{id}</code></p>
-<h3 id='url-parameters'>URL Parameters</h3>
+<h3 id='url-parameters-2'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -668,7 +717,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves a collection of <code>Status</code> objects (check-ins) for your team, ordered by descending submission time.</p>
-<h3 id='http-request-4'>HTTP Request</h3>
+<h3 id='http-request-5'>HTTP Request</h3>
 <p><code>GET https://statushero.com/api/v1/statuses</code></p>
 <h2 id='get-a-specific-status'>Get a Specific Status</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://statushero.com/api/v1/statuses/2ab4751c-c7ef-4b45-a79c-ac9822d708f6"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
@@ -719,9 +768,9 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves a specific <code>Status</code> (check-in).</p>
-<h3 id='http-request-5'>HTTP Request</h3>
-<p><code>GET https://statushero.com/api/v1/status/{id}</code></p>
-<h3 id='url-parameters-2'>URL Parameters</h3>
+<h3 id='http-request-6'>HTTP Request</h3>
+<p><code>GET https://statushero.com/api/v1/statuses/{id}</code></p>
+<h3 id='url-parameters-3'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -759,7 +808,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves a specific <code>StatusActivity</code> for a <code>Status</code> (check-in). A call to the statuses endpoint will return an array of <code>StatusActivity</code> ids for each <code>Status</code>)</p>
-<h3 id='http-request-6'>HTTP Request</h3>
+<h3 id='http-request-7'>HTTP Request</h3>
 <p><code>GET https://statushero.com/api/v1/status_activities/{id}</code></p>
 
 <table><thead>
@@ -781,7 +830,7 @@
   -d <span class="s1">'{"email":"adam@example.com", "source":"Kanban Board", "description": "Moved user story Reporting from Doing to QA"}'</span> <span class="se">\</span>
 </code></pre>
 <p>Use this endpoint to push activities from your external tools to Status Hero. You&#39;ll need to include the fields below that Status Hero can match up the activity with the appropriate team member and check-in. All fields are required unless noted. Returns a <code>201 Created</code> when successful.</p>
-<h3 id='http-request-7'>HTTP Request</h3>
+<h3 id='http-request-8'>HTTP Request</h3>
 <p><code>POST https://statushero.com/api/v1/status_activities</code></p>
 
 <table><thead>
@@ -854,7 +903,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves a <code>Comment</code> for a status update (check-in). (A call to the statuses endpoint will return an array of <code>Comment</code> ids for each <code>Status</code>.)</p>
-<h3 id='http-request-8'>HTTP Request</h3>
+<h3 id='http-request-9'>HTTP Request</h3>
 <p><code>GET https://statushero.com/api/v1/comments/{id}</code></p>
 
 <table><thead>
@@ -904,7 +953,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves a <code>Reaction</code> for a status update (check-in). (A call to the statuses endpoint will return an array of <code>Reaction</code> ids for each <code>Status</code>.)</p>
-<h3 id='http-request-9'>HTTP Request</h3>
+<h3 id='http-request-10'>HTTP Request</h3>
 <p><code>GET https://statushero.com/api/v1/reactions/{id}</code></p>
 
 <table><thead>
@@ -928,7 +977,7 @@
   -d <span class="s1">'{"date": "2018-04-28"}'</span>
 </code></pre>
 <p>This idempotent endpoint creates a vacation or leave day for an individual team <code>Member</code>. You can get the IDs of team members with a call to the members endpoint. Returns a <code>201 Created</code> when successful, or <code>202 Accepted</code> if the date is already set as an absent date.</p>
-<h3 id='http-request-10'>HTTP Request</h3>
+<h3 id='http-request-11'>HTTP Request</h3>
 <p><code>POST https://statushero.com/api/v1/member_absences/{id}</code></p>
 
 <table><thead>
@@ -961,7 +1010,7 @@
   -H <span class="s2">"X-API-KEY: your-team-api-key"</span>
 </code></pre>
 <p>This endpoint removes a vacation or leave day for an individual team <code>Member</code>. You can get the IDs of team members with a call to the members endpoint. Returns a <code>204 No Content</code> if successful.</p>
-<h3 id='http-request-11'>HTTP Request</h3>
+<h3 id='http-request-12'>HTTP Request</h3>
 <p><code>DELETE https://statushero.com/api/v1/member_absences/{id}/{date}</code></p>
 
 <table><thead>
@@ -989,7 +1038,7 @@
   -d <span class="s1">'{"date": "2018-04-28"}'</span>
 </code></pre>
 <p>This idempotent endpoint creates a team-wide holiday. Returns a <code>201 Created</code> when successful, or <code>202 Accepted</code> if the date is already set as a holiday.</p>
-<h3 id='http-request-12'>HTTP Request</h3>
+<h3 id='http-request-13'>HTTP Request</h3>
 <p><code>POST https://statushero.com/api/v1/team_absences</code></p>
 
 <table><thead>
@@ -1010,7 +1059,7 @@
   -H <span class="s2">"X-API-KEY: your-team-api-key"</span>
 </code></pre>
 <p>This endpoint removes a team-wide holiday for the specified date. Returns a <code>204 No Content</code> if successful.</p>
-<h3 id='http-request-13'>HTTP Request</h3>
+<h3 id='http-request-14'>HTTP Request</h3>
 <p><code>DELETE https://statushero.com/api/v1/team_absences/{date}</code></p>
 
 <table><thead>
