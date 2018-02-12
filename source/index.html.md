@@ -56,6 +56,10 @@ curl "https://statushero.com/api/v1/reports?page=3" \
   -H "X-API-KEY: your-team-api-key"
 ```
 
+# Rate Limiting
+
+In general we allow applications that integrate with Status Hero to send no more than one message per second. We allow bursts over that limit for short periods. However, if your app continues to exceed the limit over a longer period of time it will be rate limited.
+
 # Members
 
 A `Member` is a user who belongs to your team.
