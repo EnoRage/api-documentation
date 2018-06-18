@@ -578,6 +578,152 @@ Use this endpoint to push activities from your external tools to Status Hero. Yo
 | `description`      | A brief, plain text description of the activity                                                                                                                              | `Moved user story "Reporting" from "Doing" to "QA"`                                          |
 | `html_description` | Optional. A brief description of the activity with any necessary links or html markup. If you leave this out, Status Hero will fall back on the plain text description field | `Moved user story <a href='http://stories/123'>Reporting</a> from <b>Doing</b> to <b>QA</b>` |
 
+# Tags 
+
+Tags (#hashtags) can be used by your team to categorize check-ins.
+
+## Get a list of Tags
+
+```shell
+curl "https://statushero.com/api/v1/tags" \
+  -H "Content-Type: application/json" \
+  -H "X-TEAM-ID: your-team-id" \
+  -H "X-API-KEY: your-team-api-key"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "tags": [
+        "bravo",
+        "design",
+        "development",
+        "devops",
+        "highpriority",
+        "hotfix",
+        "marketing",
+        "mobile",
+        "optimization",
+        "performance",
+        "planning",
+        "review",
+        "sales",
+        "security"
+    ]
+}
+```
+
+This endpoint retrieves an array of tags that are configured for your team.
+
+### HTTP Request
+
+`GET https://statushero.com/api/v1/tags`
+
+## Get Statuses from a Tag
+
+```shell
+curl "https://statushero.com/api/v1/tags/design" \
+  -H "Content-Type: application/json" \
+  -H "X-TEAM-ID: your-team-id" \
+  -H "X-API-KEY: your-team-api-key"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "statuses": [
+    {
+      "id": "4eb7f57f-4ddf-419e-a435-44717fd82eaa",
+      "answers": {
+        "next": "Break up the onboarding worklow epic. Amend the master style guide with #design changes from @dave",
+        "blockers": "",
+        "previous": "Repository maintenance complete - everyone should have a little boost in their git fetch and merge speeds, especially from Europe. Closed 7 DO issues. #performance",
+        "previous_completed": "1"
+      },
+      "blocked": false,
+      "completed_at": "2018-06-18T16:21:00Z",
+      "previous_completed": true,
+      "report_id": "be29a5f2-ffe1-4ee9-b554-72f95e2f308a",
+      "slug": "2018-06-18-grace-pearson",
+      "attachments": [],
+      "report_date": "2018-06-18",
+      "title": "Check-in from Grace Pearson (San Francisco) for June 18, 2018",
+      "url": "https://statushero.com/teams/alpha-team/statuses/2018-06-18-grace-pearson",
+      "comment_ids": [],
+      "reaction_ids": [
+        "77afc770-095b-4615-b7be-16246e9a22af",
+        "624539f2-aae2-4169-b25a-8964c08ca921"
+      ],
+      "status_activity_ids": [],
+      "user": {
+        "id": "b07ce317-34f2-46f4-98b3-17473b0cf69f",
+        "email": "demo+grace@8012labs.com",
+        "first_name": "Grace",
+        "last_name": "Pearson",
+        "time_zone": "Pacific Time (US & Canada)",
+        "administrator": false,
+        "slug": "grace-pearson",
+        "full_name": "Grace Pearson",
+        "initials": "gp",
+        "avatar_url": "https://res-5.cloudinary.com/status-hero/image/upload/c_fill/v1518389164/qfeksi1247eosiuvyujx"
+      }
+    },
+    {
+      "id": "f19f6ac7-e30e-48ba-b8ce-419a1e28ff3f",
+      "answers": {
+        "next": "Break up the onboarding worklow epic. Amend the master style guide with #design changes from @IreneShaw",
+        "blockers": "",
+        "previous": "Repository maintenance complete - everyone should have a little boost in their git fetch and merge speeds, especially from Europe. Closed 7 DO issues. #performance",
+        "previous_completed": "1"
+      },
+      "blocked": false,
+      "completed_at": "2018-06-15T14:21:00Z",
+      "previous_completed": true,
+      "report_id": "00b3421b-4311-4df4-9ff9-9120764542f4",
+      "slug": "2018-06-15-dave-taylor",
+      "attachments": [],
+      "report_date": "2018-06-15",
+      "title": "Check-in from Dave Taylor (Boston) for June 15, 2018",
+      "url": "https://statushero.com/teams/alpha-team/statuses/2018-06-15-dave-taylor",
+      "comment_ids": [
+        "555c3990-9a83-4076-9a7e-1d4becec168a"
+      ],
+      "reaction_ids": [
+        "da13fe8c-1974-4394-a338-71d27f01900f"
+      ],
+      "status_activity_ids": [
+        "28b3cdb8-0d66-451f-b6f7-93b89176a5ea"
+      ],
+      "user": {
+        "id": "7e564e63-a9a3-4cbf-a015-5c91b1e720d0",
+        "email": "demo+dave@8012labs.com",
+        "first_name": "Dave",
+        "last_name": "Taylor",
+        "time_zone": "Eastern Time (US & Canada)",
+        "administrator": false,
+        "slug": "dave-taylor",
+        "full_name": "Dave Taylor",
+        "initials": "dt",
+        "avatar_url": "https://res-5.cloudinary.com/status-hero/image/upload/c_fill/v1518389162/jiyofof8szxy27emehyt"
+      }
+    },
+  ]
+}
+```
+
+
+This endpoint retrieves a collection of `Status` objects, ordered by descending date completed, where the designated tag is present. 
+
+### HTTP Request
+
+`GET https://statushero.com/api/v1/tags/{tag}`
+
+| Parameter | Description                              |
+| --------- | ---------------------------------------- |
+| `tag`      | The tag to use to retrieve the collection. E.g, "sales" or "devops" |
+
 # Comments
 
 A `Comment` is a message you or your team members can add to another check-in. A `Comment` belongs to a `Status` record.
