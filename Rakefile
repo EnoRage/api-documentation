@@ -1,4 +1,4 @@
-require 'bundler'
+require "bundler"
 
 desc "Generate the static files, publish to GitHub"
 task "publish" do
