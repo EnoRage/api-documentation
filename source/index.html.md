@@ -37,7 +37,7 @@ All requests are scoped by Status Hero team. (Each Status Hero account can have 
 > Here's an example call with the headers:
 
 ```shell
-curl "https://statushero.com/api/v1/reports" \
+curl -i "https://service.statushero.com/api/v1/reports" \
   -H "Content-Type: application/json" \
   -H "X-TEAM-ID: your-team-id" \
   -H "X-API-KEY: your-team-api-key"
@@ -50,7 +50,7 @@ Each API call that produces a collection of objects will only return 30 at a tim
 > Here's an example call with the page parameter:
 
 ```shell
-curl "https://statushero.com/api/v1/reports?page=3" \
+curl -i "https://service.statushero.com/api/v1/reports?page=3" \
   -H "Content-Type: application/json" \
   -H "X-TEAM-ID: your-team-id" \
   -H "X-API-KEY: your-team-api-key"
@@ -67,7 +67,7 @@ A `Member` is a user who belongs to your team.
 ## Get All Members
 
 ```shell
-curl "https://statushero.com/api/v1/members" \
+curl -i "https://service.statushero.com/api/v1/members" \
   -H "Content-Type: application/json" \
   -H "X-TEAM-ID: your-team-id" \
   -H "X-API-KEY: your-team-api-key"
@@ -126,11 +126,11 @@ This endpoint retrieves a collection of `Member` objects for each user on the te
 
 ### HTTP Request
 
-`GET https://statushero.com/api/v1/members`
+`GET https://service.statushero.com/api/v1/members`
 
 Or optionally:
 
-`GET https://statushero.com/api/v1/members?q={search_term}`
+`GET https://service.statushero.com/api/v1/members?q={search_term}`
 
 | Query Parameter | Description                                                                                                   |
 | --------------- | ------------------------------------------------------------------------------------------------------------- |
@@ -139,7 +139,7 @@ Or optionally:
 ## Get a Specific Team Member
 
 ```shell
-curl "https://statushero.com/api/v1/members/5b73a1de-b26f-46fe-8f61-8355a2d9241b" \
+curl -i "https://service.statushero.com/api/v1/members/5b73a1de-b26f-46fe-8f61-8355a2d9241b" \
   -H "Content-Type: application/json" \
   -H "X-TEAM-ID: your-team-id" \
   -H "X-API-KEY: your-team-api-key"
@@ -176,7 +176,7 @@ This endpoint retrieves a specific team member.
 
 ### HTTP Request
 
-`GET https://statushero.com/api/v1/members/{id}`
+`GET https://service.statushero.com/api/v1/members/{id}`
 
 ### URL Parameters
 
@@ -191,7 +191,7 @@ A `Report` is collection of status updates from each of your team members for a 
 ## Get All Reports
 
 ```shell
-curl "https://statushero.com/api/v1/reports" \
+curl -i "https://service.statushero.com/api/v1/reports" \
   -H "Content-Type: application/json" \
   -H "X-TEAM-ID: your-team-id" \
   -H "X-API-KEY: your-team-api-key"
@@ -279,12 +279,12 @@ This endpoint retrieves a collection of `Report` objects for your team, ordered 
 
 ### HTTP Request
 
-`GET https://statushero.com/api/v1/reports`
+`GET https://service.statushero.com/api/v1/reports`
 
 ## Get a Specific Report
 
 ```shell
-curl "https://statushero.com/api/v1/reports/2018-02-05" \
+curl -i "https://service.statushero.com/api/v1/reports/2018-02-05" \
   -H "Content-Type: application/json" \
   -H "X-TEAM-ID: your-team-id" \
   -H "X-API-KEY: your-team-api-key"
@@ -336,7 +336,7 @@ This endpoint retrieves a specific `Report` for your team.
 
 ### HTTP Request
 
-`GET https://statushero.com/api/v1/reports/{id}`
+`GET https://service.statushero.com/api/v1/reports/{id}`
 
 ### URL Parameters
 
@@ -351,7 +351,7 @@ Statuses are also know as "check-ins" in Status Hero. Each `Report` has a `Statu
 ## Get All Statuses
 
 ```shell
-curl "https://statushero.com/api/v1/statuses" \
+curl -i "https://service.statushero.com/api/v1/statuses" \
   -H "Content-Type: application/json" \
   -H "X-TEAM-ID: your-team-id" \
   -H "X-API-KEY: your-team-api-key"
@@ -444,12 +444,12 @@ This endpoint retrieves a collection of `Status` objects (check-ins) for your te
 
 ### HTTP Request
 
-`GET https://statushero.com/api/v1/statuses`
+`GET https://service.statushero.com/api/v1/statuses`
 
 ## Get a Specific Status
 
 ```shell
-curl "https://statushero.com/api/v1/statuses/2ab4751c-c7ef-4b45-a79c-ac9822d708f6" \
+curl -i "https://service.statushero.com/api/v1/statuses/2ab4751c-c7ef-4b45-a79c-ac9822d708f6" \
   -H "Content-Type: application/json" \
   -H "X-TEAM-ID: your-team-id" \
   -H "X-API-KEY: your-team-api-key"
@@ -503,7 +503,7 @@ This endpoint retrieves a specific `Status` (check-in).
 
 ### HTTP Request
 
-`GET https://statushero.com/api/v1/statuses/{id}`
+`GET https://service.statushero.com/api/v1/statuses/{id}`
 
 ### URL Parameters
 
@@ -518,7 +518,7 @@ Status Activities consist of data, often from other tools, that are associated w
 ## Get a Specific Status Activity
 
 ```shell
-curl "https://statushero.com/api/v1/statuses_activities/f5238ebd-6f24-41c8-826d-815bb514ac2d" \
+curl -i "https://service.statushero.com/api/v1/statuses_activities/f5238ebd-6f24-41c8-826d-815bb514ac2d" \
   -H "Content-Type: application/json" \
   -H "X-TEAM-ID: your-team-id" \
   -H "X-API-KEY: your-team-api-key"
@@ -547,7 +547,7 @@ This endpoint retrieves a specific `StatusActivity` for a `Status` (check-in). A
 
 ### HTTP Request
 
-`GET https://statushero.com/api/v1/status_activities/{id}`
+`GET https://service.statushero.com/api/v1/status_activities/{id}`
 
 | Parameter | Description                                      |
 | --------- | ------------------------------------------------ |
@@ -556,7 +556,7 @@ This endpoint retrieves a specific `StatusActivity` for a `Status` (check-in). A
 ## Add a Status Activity
 
 ```shell
-curl "https://statushero.com/api/v1/status_activities" \
+curl -i "https://service.statushero.com/api/v1/status_activities" \
   -X POST \
   -H "Content-Type: application/json" \
   -H "X-TEAM-ID: your-team-id" \
@@ -568,7 +568,7 @@ Use this endpoint to push activities from your external tools to Status Hero. Yo
 
 ### HTTP Request
 
-`POST https://statushero.com/api/v1/status_activities`
+`POST https://service.statushero.com/api/v1/status_activities`
 
 | Field              | Description                                                                                                                                                                  | Example                                                                                      |
 | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
@@ -585,7 +585,7 @@ Tags (#hashtags) can be used by your team to categorize check-ins.
 ## Get a list of Tags
 
 ```shell
-curl "https://statushero.com/api/v1/tags" \
+curl -i "https://service.statushero.com/api/v1/tags" \
   -H "Content-Type: application/json" \
   -H "X-TEAM-ID: your-team-id" \
   -H "X-API-KEY: your-team-api-key"
@@ -618,12 +618,12 @@ This endpoint retrieves an array of tags that are configured for your team.
 
 ### HTTP Request
 
-`GET https://statushero.com/api/v1/tags`
+`GET https://service.statushero.com/api/v1/tags`
 
 ## Get Statuses from a Tag
 
 ```shell
-curl "https://statushero.com/api/v1/tags/design" \
+curl -i "https://service.statushero.com/api/v1/tags/design" \
   -H "Content-Type: application/json" \
   -H "X-TEAM-ID: your-team-id" \
   -H "X-API-KEY: your-team-api-key"
@@ -718,7 +718,7 @@ This endpoint retrieves a collection of `Status` objects, ordered by descending 
 
 ### HTTP Request
 
-`GET https://statushero.com/api/v1/tags/{tag}`
+`GET https://service.statushero.com/api/v1/tags/{tag}`
 
 | Parameter | Description                              |
 | --------- | ---------------------------------------- |
@@ -731,7 +731,7 @@ A `Comment` is a message you or your team members can add to another check-in. A
 ## Get a Specific Comment
 
 ```shell
-curl "https://statushero.com/api/v1/comments/{id}" \
+curl -i "https://service.statushero.com/api/v1/comments/{id}" \
   -H "Content-Type: application/json" \
   -H "X-TEAM-ID: your-team-id" \
   -H "X-API-KEY: your-team-api-key"
@@ -771,7 +771,7 @@ This endpoint retrieves a `Comment` for a status update (check-in). (A call to t
 
 ### HTTP Request
 
-`GET https://statushero.com/api/v1/comments/{id}`
+`GET https://service.statushero.com/api/v1/comments/{id}`
 
 | Parameter | Description                              |
 | --------- | ---------------------------------------- |
@@ -784,7 +784,7 @@ A `Reaction` is quick way for team members to add a signal of feedback to anothe
 ## Get a Specific Reaction
 
 ```shell
-curl "https://statushero.com/api/v1/reactions/{id}" \
+curl -i "https://service.statushero.com/api/v1/reactions/{id}" \
   -H "Content-Type: application/json" \
   -H "X-TEAM-ID: your-team-id" \
   -H "X-API-KEY: your-team-api-key"
@@ -823,7 +823,7 @@ This endpoint retrieves a `Reaction` for a status update (check-in). (A call to 
 
 ### HTTP Request
 
-`GET https://statushero.com/api/v1/reactions/{id}`
+`GET https://service.statushero.com/api/v1/reactions/{id}`
 
 | Parameter | Description                               |
 | --------- | ----------------------------------------- |
@@ -836,7 +836,7 @@ Add or remove future vacation or leave dates for individual team members.
 ## Add Member Absence
 
 ```shell
-curl "https://statushero.com/api/v1/member_absences/adam-young" \
+curl -i "https://service.statushero.com/api/v1/member_absences/adam-young" \
   -X POST \
   -H "Content-Type: application/json" \
   -H "X-TEAM-ID: your-team-id" \
@@ -848,7 +848,7 @@ This idempotent endpoint creates a vacation or leave day for an individual team 
 
 ### HTTP Request
 
-`POST https://statushero.com/api/v1/member_absences/{id}`
+`POST https://service.statushero.com/api/v1/member_absences/{id}`
 
 | Parameter | Description                       |
 | --------- | --------------------------------- |
@@ -861,7 +861,7 @@ This idempotent endpoint creates a vacation or leave day for an individual team 
 ## Remove Member Absence
 
 ```shell
-curl "https://statushero.com/api/v1/member_absences/adam-young/2018-04-28" \
+curl -i "https://service.statushero.com/api/v1/member_absences/adam-young/2018-04-28" \
   -X DELETE \
   -H "Content-Type: application/json" \
   -H "X-TEAM-ID: your-team-id" \
@@ -872,7 +872,7 @@ This endpoint removes a vacation or leave day for an individual team `Member`. Y
 
 ### HTTP Request
 
-`DELETE https://statushero.com/api/v1/member_absences/{id}/{date}`
+`DELETE https://service.statushero.com/api/v1/member_absences/{id}/{date}`
 
 | Parameter | Description                                                |
 | --------- | ---------------------------------------------------------- |
@@ -886,7 +886,7 @@ Add or remove future team-wide holidays.
 ## Add Team Absence
 
 ```shell
-curl "https://statushero.com/api/v1/team_absences" \
+curl -i "https://service.statushero.com/api/v1/team_absences" \
   -X POST \
   -H "Content-Type: application/json" \
   -H "X-TEAM-ID: your-team-id" \
@@ -898,7 +898,7 @@ This idempotent endpoint creates a team-wide holiday. Returns a `201 Created` wh
 
 ### HTTP Request
 
-`POST https://statushero.com/api/v1/team_absences`
+`POST https://service.statushero.com/api/v1/team_absences`
 
 | Field  | Description                                                |
 | ------ | ---------------------------------------------------------- |
@@ -907,7 +907,7 @@ This idempotent endpoint creates a team-wide holiday. Returns a `201 Created` wh
 ## Remove Team Absence
 
 ```shell
-curl "https://statushero.com/api/v1/team_absences/2018-04-28" \
+curl -i "https://service.statushero.com/api/v1/team_absences/2018-04-28" \
   -X DELETE \
   -H "Content-Type: application/json" \
   -H "X-TEAM-ID: your-team-id" \
@@ -918,7 +918,7 @@ This endpoint removes a team-wide holiday for the specified date. Returns a `204
 
 ### HTTP Request
 
-`DELETE https://statushero.com/api/v1/team_absences/{date}`
+`DELETE https://service.statushero.com/api/v1/team_absences/{date}`
 
 | Parameter | Description                                                |
 | --------- | ---------------------------------------------------------- |
