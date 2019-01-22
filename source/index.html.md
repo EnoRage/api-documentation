@@ -575,8 +575,7 @@ Use this endpoint to push activities from your external tools to Status Hero. Yo
 | `email`            | Email address for the associated team member. Must match what's in Status Hero.                                                                                              | `adam@example.com`                                                                           |
 | `source`           | Source of the activity                                                                                                                                                       | `Kanban Board`                                                                               |
 | `source_url`       | Optional. An external URL for the source of the activity                                                                                                                     | `https://our-kanban-board.example.com`                                                       |
-| `description`      | A brief, plain text description of the activity                                                                                                                              | `Moved user story "Reporting" from "Doing" to "QA"`                                          |
-| `html_description` | Optional. A brief description of the activity with any necessary links or html markup. If you leave this out, Status Hero will fall back on the plain text description field | `Moved user story <a href='http://stories/123'>Reporting</a> from <b>Doing</b> to <b>QA</b>` |
+| `description`      | A brief description of the activity                                                                                                                                          | `Moved user story "Reporting" from "Doing" to "QA"`                                          |
 
 # Tags 
 
