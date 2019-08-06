@@ -1,3 +1,32 @@
+
+$pico-void: rgb(25, 42, 86);
+$bay-wharf: #747d8c;
+$desire: #eb3b5a;
+$clear-chill:             #1e90ff;
+$ufo-green:               #2ed573;
+
+
+
+$gray-base: $bay-wharf;
+
+$gray-100: lighten($gray-base, 47.5%);
+$gray-200: lighten($gray-base, 42.5%);
+$gray-300: lighten($gray-base, 37.5%);
+$gray-400: lighten($gray-base, 32.5%);
+$gray-500: lighten($gray-base, 20%);
+$gray-600: darken($gray-base, 0%);
+$gray-650: darken($gray-base, 10%);
+$gray-700: darken($gray-base, 20%);
+$gray-800: darken($gray-base, 27.5%);
+$gray-900: darken($gray-base, 35%);
+
+$blue: darken($clear-chill, 7.5%);
+$blue-secondary: lighten($clear-chill, 2.5%);
+
+$red: darken($desire, 7.5%);
+$dark: darken($pico-void, 5%);
+$dark-secondary: lighten($dark, 10%);
+
 /*
 Copyright 2008-2013 Concur Technologies, Inc.
 
@@ -14,45 +43,44 @@ License for the specific language governing permissions and limitations
 under the License.
 */
 
-
 ////////////////////////////////////////////////////////////////////////////////
 // CUSTOMIZE SLATE
 ////////////////////////////////////////////////////////////////////////////////
 // Use these settings to help adjust the appearance of Slate
 
-
 // BACKGROUND COLORS
 ////////////////////
-$nav-bg: #34495e !default;
-$examples-bg: #34495e !default;
-$code-bg: #2c3e50 !default;
-$code-annotation-bg: #2c3e50 !default;
-$nav-subitem-bg: #2c3e50 !default;
-$nav-active-bg: #2980b9 !default;
-$nav-active-parent-bg: #2c3e50 !default; // parent links of the current section
-$lang-select-border: #2c3e50 !default;
-$lang-select-bg: #2c3e50 !default;
+$nav-bg: $dark !default;
+$examples-bg: $dark !default;
+$code-bg: darken($dark, 5%) !default;
+$code-annotation-bg: $dark !default;
+$nav-subitem-bg: $dark !default;
+$nav-active-bg: $blue !default;
+$nav-active-parent-bg: $dark !default; // parent links of the current section
+$lang-select-border: $dark !default;
+$lang-select-bg: $dark !default;
 $lang-select-active-bg: $examples-bg !default; // feel free to change this to blue or something
-$lang-select-pressed-bg: darken(#2c3e50, 5%) !default; // color of language tab bg when mouse is pressed
-$main-bg: lighten(#ecf0f1, 0%) !default;
+$lang-select-pressed-bg: darken(
+  $dark,
+  5%
+) !default; // color of language tab bg when mouse is pressed
+$main-bg: $gray-200; 
 $aside-notice-bg: #d6eaf8 !default;
 $aside-warning-bg: #fdebd0 !default;
 $aside-success-bg: #d4efdf !default;
 $search-notice-bg: #f2d7d5 !default;
 
-
 // TEXT COLORS
 ////////////////////
-$main-text: #495156 !default; // main content text color
-$main-code-text: #bd4147;
-$main-text-links: #2980b9;
+$main-text: $gray-800 !default; // main content text color
+$main-code-text: $red;
+$main-text-links: $blue;
 $nav-text: #fff !default;
 $nav-active-text: #fff !default;
 $nav-active-parent-text: #fff !default; // parent links of the current section
 $lang-select-text: #fff !default; // color of unselected language tab text
 $lang-select-active-text: #fff !default; // color of selected language tab text
 $lang-select-pressed-text: #fff !default; // color of language tab text when mouse is pressed
-
 
 // SIZES
 ////////////////////
@@ -68,11 +96,11 @@ $h1-margin-bottom: 21px !default; // padding under the largest header tags
 $tablet-width: 930px !default; // min width before reverting to tablet size
 $phone-width: $tablet-width - $nav-width !default; // min width before reverting to mobile size
 
-
 // FONTS
 ////////////////////
 %default-font {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 16px;
 }
 
@@ -82,17 +110,17 @@ $phone-width: $tablet-width - $nav-width !default; // min width before reverting
 }
 
 %code-font {
-  font-family: Consolas, Menlo, Monaco, "Lucida Console", "Liberation Mono", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Courier New", monospace, serif;
+  font-family: Consolas, Menlo, Monaco, "Lucida Console", "Liberation Mono",
+    "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Courier New", monospace,
+    serif;
   font-size: 14px;
   line-height: 1.5;
 }
-
 
 // OTHER
 ////////////////////
 $nav-footer-border-color: #7f8c8d !default;
 $search-box-border-color: #7f8c8d !default;
-
 
 ////////////////////////////////////////////////////////////////////////////////
 // INTERNAL
@@ -100,6 +128,6 @@ $search-box-border-color: #7f8c8d !default;
 // These settings are probably best left alone.
 
 %break-words {
-    word-break: break-all;
-    hyphens: auto;
+  word-break: break-all;
+  hyphens: auto;
 }
