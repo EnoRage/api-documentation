@@ -25,3 +25,5 @@ The documentation is hosted on GitHub.
 
 `rake publish`
 
+---
+© Status Hero, Inc. All rights reserved.
