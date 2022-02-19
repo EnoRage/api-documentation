@@ -1,3 +1,4 @@
+
 # Status Hero API Documentation
 
 Documentation for the Version 1.0 API of [Status Hero](https://statushero.com)
